@@ -37,4 +37,14 @@ public class Todo {
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
     }
+
+    public void update(String title,boolean completed) {
+
+        if(title==null || title.isEmpty()){
+            this.title = title;
+        }
+        if(!completed){
+            this.completed = completed;
+        }
+    }
 }
