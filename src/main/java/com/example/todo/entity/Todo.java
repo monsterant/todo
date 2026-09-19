@@ -38,13 +38,14 @@ public class Todo {
         this.updatedAt = LocalDateTime.now();
     }
 
-    public void update(String title,boolean completed) {
+    public void update(String title,Boolean completed) {
 
-        if(title==null || title.isEmpty()){
+        if(title != null) {
             this.title = title;
         }
-        if(!completed){
+        if(completed != null){
             this.completed = completed;
         }
+        this.updatedAt = LocalDateTime.now();
     }
 }

@@ -10,11 +10,17 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(TodoNotFoundException.class)
-    public ResponseEntity<String> handleTodoNotFound(TodoNotFoundException e) {
+    public ResponseEntity<ErrorResponse> handleTodoNotFound(
+            TodoNotFoundException e
+    ) {
+        ErrorResponse response = new ErrorResponse(
+                HttpStatus.NOT_FOUND.value(),
+                e.getMessage()
+        );
 
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
-                .body(e.getMessage());
+                .body(response);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

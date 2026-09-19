@@ -29,8 +29,7 @@ public class TodoController {
     }
 
     @PatchMapping("/{id}")
-    @ResponseStatus(HttpStatus.UPGRADE_REQUIRED)
-    public TodoResponse update(@PathVariable Long id,@RequestBody TodoUpdateRequest request) {
+    public TodoResponse update(@PathVariable Long id,@Valid @RequestBody TodoUpdateRequest request) {
         return todoService.update(id,request);
     }
 
