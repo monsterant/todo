@@ -1,0 +1,11 @@
+### 생성
+POST http://localhost:8080/todo
+Content-Type: application/json
+
+{
+  "title": "자바 공부하기"
+}
+
+
+### 전체 조회
+GET http://localhost:8080/todo
